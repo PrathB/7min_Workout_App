@@ -4,7 +4,7 @@
     <item>
         <shape
             android:shape="oval">
-            <solid android:color="@color/button_grey"/>
+            <solid android:color="@color/button_blue"/>
         </shape>
     </item>
     <item android:drawable="@drawable/start_button_circular_border"/>

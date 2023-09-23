@@ -10,31 +10,34 @@
     <ImageView
         android:id="@+id/iv_home"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:src="@drawable/home_page_logo"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/home_page_logo"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/home_page_logo"
         app:layout_constraintBottom_toTopOf="@+id/fl_start"
-        android:contentDescription="@string/home_page_logo" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="200dp"
+        />
+
     <FrameLayout
         android:id="@+id/fl_start"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_home"
         android:background="@drawable/start_button_circular_border_ripple"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_home"
+        android:layout_marginTop="40dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/start"
-            android:textSize="@dimen/default_button_text_size"
             android:textColor="@color/main_orange"
+            android:textSize="@dimen/default_button_text_size"
             android:textStyle="bold" />
     </FrameLayout>
 

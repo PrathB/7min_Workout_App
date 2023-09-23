@@ -1,5 +1,6 @@
 package com.test.a7minworkout
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.test.a7minworkout.databinding.ActivityMainBinding
@@ -12,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         binding?.flStart?.setOnClickListener {
-
+            val intent = Intent(this,ExerciseActivity::class.java)
+            startActivity(intent)
         }
     }
 

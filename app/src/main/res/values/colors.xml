@@ -5,5 +5,6 @@
     <color name="main_green">#7ADA82</color>
     <color name="main_orange">#F79306</color>
     <color name="ripple_grey">#adb5bd</color>
-    <color name="button_grey">#1d2d44</color>
+    <color name="button_blue">#1d2d44</color>
+    <color name="toolbar_color_control_normal">#000814</color>
 </resources>
