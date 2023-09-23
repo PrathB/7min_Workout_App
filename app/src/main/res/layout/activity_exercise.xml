@@ -19,7 +19,7 @@
         />
 
     <TextView
-        android:id="@+id/getReady"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/get_ready_for"
@@ -28,20 +28,63 @@
         android:layout_marginBottom="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fl_progressBar" />
+        app:layout_constraintBottom_toTopOf="@id/fl_progressBar_rest" />
 
     <FrameLayout
-        android:id="@+id/fl_progressBar"
+        android:id="@+id/fl_progressBar_rest"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:padding="10dp"
         android:background="@drawable/start_button_circular_border"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_exercise">
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/progressBar_rest"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            style="?android:progressBarStyleHorizontal"
+            android:max="10"
+            android:progress="10"
+            android:rotation="-90"/>
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/circular_progress_background">
+
+            <TextView
+                android:id="@+id/tv_timer_rest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="10"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_progressBar_exercise"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:padding="10dp"
+        android:background="@drawable/start_button_circular_border"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_exercise">
+        <ProgressBar
+            android:id="@+id/progressBar_exercise"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -59,10 +102,10 @@
             android:background="@drawable/circular_progress_background">
 
             <TextView
-                android:id="@+id/tv_timer"
+                android:id="@+id/tv_timer_exercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="10"
+                tools:text="30"
                 android:textSize="25sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
