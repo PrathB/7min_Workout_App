@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="10dp"
     tools:context=".ExerciseActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,9 +20,10 @@
         />
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tv_rest_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        tools:visibility="invisible"
         android:text="@string/get_ready_for"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -36,7 +38,7 @@
         android:layout_height="100dp"
         android:padding="10dp"
         android:background="@drawable/start_button_circular_border"
-        android:visibility="visible"
+        tools:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,47 +74,73 @@
 
     </FrameLayout>
 
+    <ImageView
+        android:id="@+id/iv_exercise"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_squat"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_exercise_name"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_exercise"
+        android:contentDescription="@string/exercise_instruction" />
+
+    <TextView
+        android:id="@+id/tv_exercise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:visibility="visible"
+        tools:text="@string/exercise_name"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fl_progressBar_exercise" />
+
     <FrameLayout
         android:id="@+id/fl_progressBar_exercise"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:padding="10dp"
         android:background="@drawable/start_button_circular_border"
-        android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        tools:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_exercise">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
         <ProgressBar
             android:id="@+id/progressBar_exercise"
+            style="?android:progressBarStyleHorizontal"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:progressDrawable="@drawable/circular_progress_bar"
-            style="?android:progressBarStyleHorizontal"
             android:max="30"
             android:progress="30"
-            android:rotation="-90"/>
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:rotation="-90" />
 
         <LinearLayout
-            android:layout_width="60dp"
+            android:layout_width="57dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/circular_progress_background">
+            android:background="@drawable/circular_progress_background"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tv_timer_exercise"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="30"
-                android:textSize="25sp"
                 android:textColor="@color/black"
+                android:textSize="25sp"
                 android:textStyle="bold"
-                />
+                tools:text="30" />
         </LinearLayout>
 
     </FrameLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

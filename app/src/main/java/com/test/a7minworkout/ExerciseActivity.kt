@@ -43,6 +43,7 @@ class ExerciseActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 currentExercise++
+                if(currentExercise < exerciseList!!.size)
                 setExerciseView()
             }
         }.start()
@@ -50,10 +51,13 @@ class ExerciseActivity : AppCompatActivity() {
 
     private fun setRestView(){
 //        this fxn will cancel any existing timer before calling startRestTimer()
-        binding?.flProgressBarExercise?.visibility = View.INVISIBLE
-        binding?.flProgressBarRest?.visibility = View.VISIBLE
+        binding?.flProgressBarExercise?.visibility = View.GONE
+        binding?.tvExerciseName?.visibility = View.GONE
+        binding?.ivExercise?.visibility = View.GONE
 
-        binding?.tvTitle?.text = "GET READY FOR"
+        binding?.flProgressBarRest?.visibility = View.VISIBLE
+        binding?.tvRestTitle?.visibility = View.VISIBLE
+
         if(restTimer!= null ){
             restTimer!!.cancel()
             binding?.tvTimerRest?.text = (10).toString()
@@ -89,10 +93,17 @@ class ExerciseActivity : AppCompatActivity() {
 
     private fun setExerciseView(){
 //        this fxn will cancel any existing timer before calling startExerciseTimer()
-        binding?.flProgressBarExercise?.visibility = View.VISIBLE
-        binding?.flProgressBarRest?.visibility = View.INVISIBLE
 
-        binding?.tvTitle?.text = "EXERCISE NAME:"
+        binding?.tvRestTitle?.visibility = View.GONE
+        binding?.flProgressBarRest?.visibility = View.GONE
+
+        binding?.flProgressBarExercise?.visibility = View.VISIBLE
+        binding?.tvExerciseName?.visibility = View.VISIBLE
+        binding?.ivExercise?.visibility = View.VISIBLE
+
+        binding?.tvExerciseName?.text = exerciseList!![currentExercise].getName()
+        binding?.ivExercise?.setImageResource(exerciseList!![currentExercise].getImage())
+
         if(exerciseTimer!= null){
             exerciseTimer!!.cancel()
             binding?.tvTimerExercise?.text = (30).toString()
