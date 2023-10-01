@@ -43,8 +43,9 @@ class ExerciseActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 currentExercise++
-                if(currentExercise < exerciseList!!.size)
-                setExerciseView()
+                if(currentExercise < exerciseList!!.size) {
+                    setExerciseView()
+                    }
             }
         }.start()
     }
@@ -57,6 +58,13 @@ class ExerciseActivity : AppCompatActivity() {
 
         binding?.flProgressBarRest?.visibility = View.VISIBLE
         binding?.tvRestTitle?.visibility = View.VISIBLE
+
+        binding?.tvUpcomingExercise?.visibility = View.VISIBLE
+        binding?.tvUpcomingExerciseName?.visibility = View.VISIBLE
+
+        val exerciseName : String = exerciseList!![currentExercise+1].getName()
+
+        binding?.tvUpcomingExerciseName?.text = exerciseName
 
         if(restTimer!= null ){
             restTimer!!.cancel()
@@ -86,7 +94,9 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                setRestView()
+                if(currentExercise < exerciseList!!.size - 1) {
+                    setRestView()
+                }
             }
         }.start()
     }
@@ -100,6 +110,9 @@ class ExerciseActivity : AppCompatActivity() {
         binding?.flProgressBarExercise?.visibility = View.VISIBLE
         binding?.tvExerciseName?.visibility = View.VISIBLE
         binding?.ivExercise?.visibility = View.VISIBLE
+
+        binding?.tvUpcomingExercise?.visibility = View.GONE
+        binding?.tvUpcomingExerciseName?.visibility = View.GONE
 
         binding?.tvExerciseName?.text = exerciseList!![currentExercise].getName()
         binding?.ivExercise?.setImageResource(exerciseList!![currentExercise].getImage())

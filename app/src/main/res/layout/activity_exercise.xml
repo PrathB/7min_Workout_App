@@ -23,7 +23,7 @@
         android:id="@+id/tv_rest_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:visibility="invisible"
+        tools:visibility="visible"
         android:text="@string/get_ready_for"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -38,7 +38,7 @@
         android:layout_height="100dp"
         android:padding="10dp"
         android:background="@drawable/start_button_circular_border"
-        tools:visibility="invisible"
+        tools:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,13 +74,39 @@
 
     </FrameLayout>
 
+    <TextView
+        android:id="@+id/tv_upcoming_exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:visibility="visible"
+        android:text="@string/upcoming_exercise"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_progressBar_rest" />
+
+    <TextView
+        android:id="@+id/tv_upcoming_exercise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:visibility="visible"
+        tools:text="Squat"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_upcoming_exercise" />
+
     <ImageView
         android:id="@+id/iv_exercise"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_squat"
+        tools:src="@drawable/ic_squat"
         android:layout_margin="10dp"
+        tools:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_exercise_name"
@@ -91,7 +117,7 @@
         android:id="@+id/tv_exercise_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:visibility="visible"
+        tools:visibility="invisible"
         tools:text="@string/exercise_name"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -107,7 +133,7 @@
         android:background="@drawable/start_button_circular_border"
         android:padding="10dp"
         android:layout_marginBottom="10dp"
-        tools:visibility="visible"
+        tools:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
