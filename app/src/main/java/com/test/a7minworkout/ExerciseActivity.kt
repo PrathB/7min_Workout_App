@@ -1,5 +1,6 @@
 package com.test.a7minworkout
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
@@ -137,6 +138,11 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
                 if(currentExercise < exerciseList!!.size - 1) {
                     setRestView()
+                }
+                else{
+                    finish()
+                    val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }.start()

@@ -7,4 +7,9 @@
     <string name="exercise_instruction">Exercise Instruction</string>
     <string name="upcoming_exercise">UPCOMING EXERCISE:</string>
     <string name="_1">1</string>
+    <string name="you_have_completed_the_workout">You have completed the workout.</string>
+    <string name="finish">Finish</string>
+    <string name="trophy_image">trophy_image</string>
+    <string name="congratulations">Congratulations!,</string>
+    <string name="end">END</string>
 </resources>
