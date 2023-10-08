@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_item_status"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:layout_margin="1dp"
+    android:background="@drawable/exercise_status_bg"
+    android:gravity="center"
+    android:padding="1dp"
+    tools:text="@string/_1"
+    android:textSize="12sp"
+    android:textStyle="bold"
+    android:textColor="@color/black"
+    />

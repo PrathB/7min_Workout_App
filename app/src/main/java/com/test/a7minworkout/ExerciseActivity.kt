@@ -2,12 +2,13 @@ package com.test.a7minworkout
 
 import android.media.MediaPlayer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.a7minworkout.databinding.ActivityExerciseBinding
 import java.util.Locale
 
@@ -23,6 +24,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var tts : TextToSpeech? = null
 
     private var player : MediaPlayer? = null
+
+    private var exerciseStatusAdapter : ExerciseStatusAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +47,15 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
         setRestView()
+        setExerciseStatusRecyclerView()
+    }
+
+    private fun setExerciseStatusRecyclerView(){
+        binding?.rvProgress?.layoutManager =
+            LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+
+        exerciseStatusAdapter = ExerciseStatusAdapter(exerciseList!!)
+        binding?.rvProgress?.adapter = exerciseStatusAdapter
     }
 
     private fun startRestTimer(){
@@ -55,6 +67,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             override fun onFinish() {
                 currentExercise++
+                exerciseList!![currentExercise].setIsSelected(true)
+                exerciseStatusAdapter!!.notifyDataSetChanged()
+
                 if(currentExercise < exerciseList!!.size) {
                     setExerciseView()
                     }
@@ -116,6 +131,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             override fun onFinish() {
+                exerciseList!![currentExercise].setIsSelected(false)
+                exerciseList!![currentExercise].setIsCompleted(true)
+                exerciseStatusAdapter!!.notifyDataSetChanged()
+
                 if(currentExercise < exerciseList!!.size - 1) {
                     setRestView()
                 }
@@ -138,6 +157,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         binding?.tvExerciseName?.text = exerciseList!![currentExercise].getName()
         binding?.ivExercise?.setImageResource(exerciseList!![currentExercise].getImage())
+        exerciseList!![currentExercise].setIsSelected(true)
 
         if(exerciseTimer!= null){
             exerciseTimer!!.cancel()
