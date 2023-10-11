@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BMIActivity"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/body_fat_activity_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/ToolbarTheme"
+        android:background="@color/button_blue"
+        app:titleTextColor="@color/white"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg_unit_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@id/body_fat_activity_action_bar"
+        android:background="@drawable/unit_selector_radio_group"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp">
+
+        <RadioButton
+            android:id="@+id/rb_metric_units"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:checked="true"
+            android:button="@null"
+            android:background="@drawable/unit_selector_radio_button_selected"
+            android:text="@string/metric_units"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@drawable/unit_radio_button_text_color"
+            />
+        <RadioButton
+            android:id="@+id/rb_imperial_units"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:checked="false"
+            android:button="@null"
+            android:background="@drawable/unit_selector_radio_button_selected"
+            android:text="@string/imperial_units"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@drawable/unit_radio_button_text_color"
+            />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_gender_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@id/rg_unit_selector"
+        android:background="@drawable/unit_selector_radio_group"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp">
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:checked="true"
+            android:button="@null"
+            android:background="@drawable/unit_selector_radio_button_selected"
+            android:text="@string/male"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@drawable/unit_radio_button_text_color"
+            />
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:checked="false"
+            android:button="@null"
+            android:background="@drawable/unit_selector_radio_button_selected"
+            android:text="@string/female"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@drawable/unit_radio_button_text_color"
+            />
+
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:id="@+id/ll_metric_body_fat_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rg_gender_selector"
+        android:visibility="visible"
+        tools:visibility="invisible"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_weight_metric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="5dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_weight_metric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/weight_in_kg"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_height_metric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_height_metric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/height_in_cm"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_neck_metric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_neck_metric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/neck_circumference_in_cms"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_waist_metric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_waist_metric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/waist_circumference_in_cms"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_hip_metric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_hip_metric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hip_circumference_in_cms"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_imperial_body_fat_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rg_gender_selector"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_weight_imperial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="5dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_weight_imperial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/weight_in_lb"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingHorizontal="20dp"
+            android:text="@string/height_in_feet_and_inches"
+            android:textSize="20sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:baselineAligned="false">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout_height_feet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@color/main_green"
+                app:hintTextColor = "@color/main_green"
+                >
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/body_fat_input_height_feet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/height_feet"
+                    android:textSize="20sp"
+                    android:inputType="numberDecimal"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout_height_inches"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@color/main_green"
+                app:hintTextColor = "@color/main_green"
+                >
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/body_fat_input_height_inches"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/height_inches"
+                    android:textSize="20sp"
+                    android:inputType="numberDecimal"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_neck_imperial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_neck_imperial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/neck_circumference_in_inches"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_waist_imperial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_waist_imperial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/waist_circumference_in_inches"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_hip_imperial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="@color/main_green"
+            app:hintTextColor = "@color/main_green"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/body_fat_input_hip_imperial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hip_circumference_in_inches"
+                android:textSize="20sp"
+                android:inputType="numberDecimal"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bmi_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_calculate_bmi"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:visibility="invisible"
+        tools:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="2.5dp"
+            android:gravity="center"
+            android:text="@string/body_fat1"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="2.5dp"
+            android:gravity="center"
+            android:text="@string/fat_mass"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="2.5dp"
+            android:gravity="center"
+            android:text="@string/lean_mass"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_calculate_bmi"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_imperial_body_fat_input"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/main_green_dark"
+        android:text="@string/calculate"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

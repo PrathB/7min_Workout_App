@@ -21,6 +21,11 @@ class MainActivity : AppCompatActivity() {
             val intentBMI = Intent(this,BMIActivity::class.java)
             startActivity(intentBMI)
         }
+
+        binding?.flBodyFatCalculator?.setOnClickListener {
+            val intentBodyFat = Intent(this,BodyFatActivity::class.java)
+            startActivity(intentBodyFat)
+        }
     }
 
     override fun onDestroy() {

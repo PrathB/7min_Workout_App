@@ -27,4 +27,17 @@
     <string name="metric_units">METRIC UNITS</string>
     <string name="imperial_units">IMPERIAL UNITS</string>
     <string name="height_in_feet_and_inches">HEIGHT (in feet and inches) :</string>
+    <string name="female">FEMALE</string>
+    <string name="male">MALE</string>
+    <string name="age">AGE (in years)</string>
+    <string name="neck_circumference_in_cms">NECK CIRCUMFERENCE (in cms)</string>
+    <string name="waist_circumference_in_cms">WAIST CIRCUMFERENCE (in cms)</string>
+    <string name="hip_circumference_in_cms">HIP CIRCUMFERENCE (in cms)</string>
+    <string name="hip_circumference_in_inches">HIP CIRCUMFERENCE (in inches)</string>
+    <string name="waist_circumference_in_inches">WAIST CIRCUMFERENCE (in inches)</string>
+    <string name="neck_circumference_in_inches">NECK CIRCUMFERENCE (in inches)</string>
+    <string name="body_fat">BODY FAT</string>
+    <string name="body_fat1">BODY FAT :</string>
+    <string name="fat_mass">FAT MASS :</string>
+    <string name="lean_mass">LEAN MASS :</string>
 </resources>

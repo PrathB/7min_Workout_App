@@ -8,5 +8,7 @@
     <color name="ripple_grey">#adb5bd</color>
     <color name="button_blue">#1d2d44</color>
     <color name="toolbar_color_control_normal">#000814</color>
+    <color name="radio_group_bg">#3A3A3A</color>
+    <color name="radio_button_text_color">#C0C0C0</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#FFFFFFFF</color>
 </resources>
