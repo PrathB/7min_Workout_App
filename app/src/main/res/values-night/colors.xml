@@ -6,7 +6,7 @@
     <color name="main_green_dark">#198C29</color>
     <color name="main_orange">#F79306</color>
     <color name="ripple_grey">#adb5bd</color>
-    <color name="button_blue">#2C63B1</color>
+    <color name="button_blue">#1d2d44</color>
     <color name="toolbar_color_control_normal">#000814</color>
-    <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#FF000000</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#FFFFFFFF</color>
 </resources>

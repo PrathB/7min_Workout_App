@@ -16,4 +16,9 @@
     <string name="yes">YES</string>
     <string name="this_will_stop_the_workout_you_have_come_this_far_are_you_sure_you_want_to_quit">This will stop the workout. You have come this far, are you sure you want to quit?</string>
     <string name="are_you_sure">Are you sure?</string>
+    <string name="bmi">BMI</string>
+    <string name="calculator">Calculator</string>
+    <string name="weight_in_kg">WEIGHT (in kgs)</string>
+    <string name="height_in_cm">HEIGHT (in cms)</string>
+    <string name="calculate">CALCULATE</string>
 </resources>

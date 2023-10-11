@@ -13,8 +13,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         binding?.flStart?.setOnClickListener {
-            val intent = Intent(this,ExerciseActivity::class.java)
-            startActivity(intent)
+            val intentStart = Intent(this,ExerciseActivity::class.java)
+            startActivity(intentStart)
+        }
+
+        binding?.flBmiCalculator?.setOnClickListener {
+            val intentBMI = Intent(this,BMIActivity::class.java)
+            startActivity(intentBMI)
         }
     }
 
