@@ -19,6 +19,12 @@
     <string name="bmi">BMI</string>
     <string name="calculator">Calculator</string>
     <string name="weight_in_kg">WEIGHT (in kgs)</string>
+    <string name="weight_in_lb">WEIGHT (in lbs)</string>
     <string name="height_in_cm">HEIGHT (in cms)</string>
+    <string name="height_feet">Feet</string>
+    <string name="height_inches">Inches</string>
     <string name="calculate">CALCULATE</string>
+    <string name="metric_units">METRIC UNITS</string>
+    <string name="imperial_units">IMPERIAL UNITS</string>
+    <string name="height_in_feet_and_inches">HEIGHT (in feet and inches) :</string>
 </resources>

@@ -16,7 +16,7 @@ class BMIActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         setSupportActionBar(binding?.bmiActivityActionBar)
-        if(supportActionBar!=null){
+        if (supportActionBar != null) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
@@ -26,28 +26,72 @@ class BMIActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        binding?.btnCalculateBmi?.setOnClickListener {
-            if(binding?.bmiInputWeightMetric?.text.toString().isEmpty()
-                || binding?.bmiInputHeightMetric?.text.toString().isEmpty()){
+        binding?.rbImperialUnits?.setOnClickListener {
+//            the metric input field is made invisible and imperial made visible
+            binding?.llMetricBmiInput?.visibility = View.INVISIBLE
+            binding?.llImperialBmiInput?.visibility = View.VISIBLE
+            binding?.llBmiValue?.visibility = View.INVISIBLE
+        }
 
-                Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show()
+        binding?.rbMetricUnits?.setOnClickListener {
+//            the imperial input field is made invisible and metric made visible
+            binding?.llMetricBmiInput?.visibility = View.VISIBLE
+            binding?.llImperialBmiInput?.visibility = View.INVISIBLE
+            binding?.llBmiValue?.visibility = View.INVISIBLE
+        }
+
+        binding?.btnCalculateBmi?.setOnClickListener {
+//            if metric unit is selected
+            if (binding?.rbMetricUnits?.isChecked == true) {
+                if (binding?.bmiInputWeightMetric?.text.toString().isEmpty()
+                    || binding?.bmiInputHeightMetric?.text.toString().isEmpty()
+                ) {
+
+                    Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show()
+                } else {
+                    val bmiValMetric = calculateBMIMetric()
+                    binding?.tvBmiValue?.text = bmiValMetric.toString()
+                    binding?.tvBmiDescription?.text = descriptionBMI(bmiValMetric)
+//                    bmi result is made visible
+                    binding?.llBmiValue?.visibility = View.VISIBLE
+                }
             }
-            else{
-                val bmiVal = calculateBMI()
-                binding?.tvBmiValue?.text = bmiVal.toString()
-                binding?.tvBmiDescription?.text = descriptionBMI(bmiVal)
-                binding?.llBmiValue?.visibility = View.VISIBLE
+
+//          if imperial unit is selected
+            else {
+                if (binding?.bmiInputWeightImperial?.text.toString().isEmpty()
+                    || binding?.bmiInputHeightFeet?.text.toString().isEmpty()
+                    || binding?.bmiInputHeightInches?.text.toString().isEmpty()
+                ) {
+                    Toast.makeText(this, "Please enter all fields", Toast.LENGTH_SHORT).show()
+                } else {
+                    val bmiValImperial = calculateBMIImperial()
+                    binding?.tvBmiValue?.text = bmiValImperial.toString()
+                    binding?.tvBmiDescription?.text = descriptionBMI(bmiValImperial)
+//                   bmi result is made visible
+                    binding?.llBmiValue?.visibility = View.VISIBLE
+                }
             }
         }
     }
 
-    private fun calculateBMI(): Float {
+    private fun calculateBMIMetric(): Float {
         val heightMeter = binding?.bmiInputHeightMetric?.text.toString().toFloat() / 100
         val weightKg = binding?.bmiInputWeightMetric?.text.toString().toFloat()
-        val bmi = weightKg / (heightMeter.pow(2))
-        return (String.format("%.2f", bmi)).toFloat()
+        val bmi1 = weightKg / (heightMeter.pow(2))
+        return (String.format("%.2f", bmi1)).toFloat()
     }
 
+    private fun calculateBMIImperial(): Float {
+        val heightFeet = binding?.bmiInputHeightFeet?.text.toString().toFloat()
+        val heightInches = binding?.bmiInputHeightInches?.text.toString().toFloat()
+        val totalHeightInches : Float = (heightFeet*12) + heightInches
+        val weightLbs = binding?.bmiInputWeightImperial?.text.toString().toFloat()
+        val bmi2 = (weightLbs / (totalHeightInches.pow(2))) * 703
+        return (String.format("%.2f", bmi2)).toFloat()
+    }
+
+//  returns statements for different bmi ranges
     private fun descriptionBMI(x : Float) : String{
         val bmiDescription : String
         when{

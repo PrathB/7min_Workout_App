@@ -59,6 +59,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun customDialogBack(){
+//        this fxn displays custom dialog for confirmation when back button is pressed
         val customDialog = Dialog(this@ExerciseActivity)
         val customDialogBinding = CustomDialogBackConfirmationBinding.inflate(layoutInflater)
         customDialog.setContentView(customDialogBinding.root)
