@@ -374,10 +374,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_bmi_value"
+        android:id="@+id/ll_body_fat_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_calculate_bmi"
+        android:layout_below="@id/btn_calculate_body_fat"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
@@ -415,7 +415,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_calculate_bmi"
+        android:id="@+id/btn_calculate_body_fat"
         style="?android:attr/buttonBarButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
