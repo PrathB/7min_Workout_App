@@ -13,6 +13,7 @@
         android:layout_height="?actionBarSize"
         android:theme="@style/ToolbarTheme"
         android:background="@color/button_blue"
+        app:title="CALCULATE BMI"
         app:titleTextColor="@color/white"
         />
 
@@ -85,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/weight_in_kg"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:inputType="numberDecimal"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -104,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/height_in_cm"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:inputType="numberDecimal"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -136,7 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/weight_in_lb"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:inputType="numberDecimal"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -147,7 +148,7 @@
             android:layout_marginTop="10dp"
             android:paddingHorizontal="20dp"
             android:text="@string/height_in_feet_and_inches"
-            android:textSize="20sp"/>
+            android:textSize="18sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -172,7 +173,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/height_feet"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:inputType="numberDecimal"
                     />
 
@@ -193,7 +194,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/height_inches"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:inputType="numberDecimal"
                     />
 

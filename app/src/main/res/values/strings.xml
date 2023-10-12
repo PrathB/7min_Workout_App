@@ -38,6 +38,7 @@
     <string name="neck_circumference_in_inches">NECK CIRCUMFERENCE (in inches)</string>
     <string name="body_fat">BODY FAT</string>
     <string name="body_fat1">BODY FAT :</string>
-    <string name="fat_mass">FAT MASS :</string>
-    <string name="lean_mass">LEAN MASS :</string>
+    <string name="fat_mass">BODY FAT MASS :</string>
+    <string name="lean_mass">LEAN BODY MASS :</string>
+    <string name="body_fat_category">BODY FAT CATEGORY :</string>
 </resources>
