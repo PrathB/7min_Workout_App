@@ -149,9 +149,9 @@ class BodyFatActivity : AppCompatActivity() {
                     }
                 }
                 binding?.tvBfpValue?.text = "BODY FAT PERCENTAGE : $bfp %"
-                binding?.tvBfCategory?.text  = "BODY FAT CATEGORY : $category"
-                binding?.tvFmValue?.text = "BODY FAT MASS : " + String.format("%.1f", fm) +" kgs"
-                binding?.tvLmValue?.text = "LEAN BODY MASS : $lm kgs"
+                binding?.tvBfCategory?.text  = "CATEGORY : $category"
+                binding?.tvFmValue?.text = "FAT MASS : " + String.format("%.1f", fm) +" kgs"
+                binding?.tvLmValue?.text = "LEAN MASS : $lm kgs"
             }
 
 
@@ -208,9 +208,9 @@ class BodyFatActivity : AppCompatActivity() {
                 }
 
                 binding?.tvBfpValue?.text = "BODY FAT PERCENTAGE : $bfp %"
-                binding?.tvBfCategory?.text  = "BODY FAT CATEGORY : $category"
-                binding?.tvFmValue?.text = "BODY FAT MASS : " + String.format("%.1f", fm) +" lbs"
-                binding?.tvLmValue?.text = "LEAN BODY MASS : $lm lbs"
+                binding?.tvBfCategory?.text  = "CATEGORY : $category"
+                binding?.tvFmValue?.text = "FAT MASS : " + String.format("%.1f", fm) +" lbs"
+                binding?.tvLmValue?.text = "LEAN MASS : $lm lbs"
 
             }
 
@@ -250,9 +250,9 @@ class BodyFatActivity : AppCompatActivity() {
     private fun calculateBFPFemaleImperial(): Float {
         val heightfeet = binding?.bodyFatInputHeightFeet?.text.toString().toFloat()
         val heightinches = binding?.bodyFatInputHeightInches?.text.toString().toFloat()
-        val waistinches = binding?.bodyFatInputWaistMetric?.text.toString().toFloat()
-        val neckinches = binding?.bodyFatInputNeckMetric?.text.toString().toFloat()
-        val hipinches= binding?.bodyFatInputHipMetric?.text.toString().toFloat()
+        val waistinches = binding?.bodyFatInputWaistImperial?.text.toString().toFloat()
+        val neckinches = binding?.bodyFatInputNeckImperial?.text.toString().toFloat()
+        val hipinches= binding?.bodyFatInputHipImperial?.text.toString().toFloat()
         val bfp = 163.205 * log10(waistinches + hipinches - neckinches) - 97.684 * log10(heightfeet*12 + heightinches) - 78.387
         return (String.format("%.1f", bfp)).toFloat()
     }
