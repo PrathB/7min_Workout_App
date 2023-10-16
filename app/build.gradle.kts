@@ -1,11 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.test.a7minworkout"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.test.a7minworkout"
@@ -39,10 +40,18 @@ android {
 }
 
 dependencies {
+    val roomVersion = "2.5.2"
+    val activityVersion = "1.8.0"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+    implementation("androidx.activity:activity-ktx:$activityVersion")
+
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
