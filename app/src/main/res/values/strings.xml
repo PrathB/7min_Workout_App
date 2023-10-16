@@ -41,4 +41,6 @@
     <string name="fat_mass">BODY FAT MASS :</string>
     <string name="lean_mass">LEAN BODY MASS :</string>
     <string name="body_fat_category">BODY FAT CATEGORY :</string>
+    <string name="history">History</string>
+    <string name="calendar_image">Calendar Image</string>
 </resources>

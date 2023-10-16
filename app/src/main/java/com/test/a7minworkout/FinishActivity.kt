@@ -6,7 +6,7 @@ import com.test.a7minworkout.databinding.ActivityFinishBinding
 
 class FinishActivity : AppCompatActivity() {
 
-    var binding: ActivityFinishBinding? = null
+    private var binding: ActivityFinishBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFinishBinding.inflate(layoutInflater)

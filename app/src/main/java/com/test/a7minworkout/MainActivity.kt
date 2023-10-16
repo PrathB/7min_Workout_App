@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
             val intentBodyFat = Intent(this,BodyFatActivity::class.java)
             startActivity(intentBodyFat)
         }
+
+        binding?.flHistory?.setOnClickListener {
+            val intentHistory = Intent(this,HistoryActivity::class.java)
+            startActivity(intentHistory)
+        }
     }
 
     override fun onDestroy() {

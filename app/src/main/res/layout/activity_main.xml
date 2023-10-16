@@ -74,7 +74,7 @@
                     android:layout_gravity="center"
                     android:text="@string/bmi"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/default_button_text_size"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </FrameLayout>
 
@@ -98,8 +98,8 @@
 
             <FrameLayout
                 android:id="@+id/fl_body_fat_calculator"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:background="@drawable/bmi_btn_border">
 
                 <TextView
@@ -109,7 +109,7 @@
                     android:gravity="center"
                     android:text="@string/body_fat"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/default_button_text_size"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
             </FrameLayout>
 
@@ -122,6 +122,37 @@
                 android:textSize="@dimen/default_button_text_size"
                 android:textStyle="bold"
                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/fl_history"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@drawable/bmi_btn_border">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_calendar"
+                    android:contentDescription="@string/calendar_image"/>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/history"
+                android:textColor="@color/main_green"
+                android:textSize="@dimen/default_button_text_size"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
