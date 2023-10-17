@@ -23,7 +23,7 @@ class BodyFatActivity : AppCompatActivity() {
         }
 
         binding?.bodyFatActivityActionBar?.setNavigationOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
 
         binding?.rbImperialUnits?.setOnClickListener {
@@ -307,6 +307,11 @@ class BodyFatActivity : AppCompatActivity() {
             }
         }
         return category
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 }

@@ -21,7 +21,7 @@ class BMIActivity : AppCompatActivity() {
         }
 
         binding?.bmiActivityActionBar?.setNavigationOnClickListener {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
 
         binding?.rbImperialUnits?.setOnClickListener {
@@ -119,6 +119,11 @@ class BMIActivity : AppCompatActivity() {
             }
         }
         return bmiDescription
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 
