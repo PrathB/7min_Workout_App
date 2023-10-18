@@ -27,14 +27,13 @@ class FinishActivity : AppCompatActivity() {
     private fun addDateToDatabase(historyDao: HistoryDao){
         val cal = Calendar.getInstance()
         val date = cal.time
-        val sdf = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault())
+        val sdf = SimpleDateFormat("dd MMM yyyy hh:mm a", Locale.getDefault())
         val fdate = sdf.format(date)
 
         lifecycleScope.launch {
             historyDao.insert(HistoryEntity(fdate))
         }
     }
-
     override fun onDestroy() {
         super.onDestroy()
         binding = null

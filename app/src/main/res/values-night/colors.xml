@@ -11,4 +11,5 @@
     <color name="radio_group_bg">#3A3A3A</color>
     <color name="radio_button_text_color">#C0C0C0</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:ignore="PrivateResource">#FFFFFFFF</color>
+    <color name="recycle_view_bg_color">#343a40</color>
 </resources>

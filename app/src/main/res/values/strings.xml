@@ -43,4 +43,8 @@
     <string name="body_fat_category">BODY FAT CATEGORY :</string>
     <string name="history">History</string>
     <string name="calendar_image">Calendar Image</string>
+    <string name="no_data_available">NO DATA AVAILABLE!</string>
+    <string name="workout_history">WORKOUT HISTORY</string>
+    <string name="clear_workout_history">CLEAR WORKOUT HISTORY</string>
+    <string name="delete_icon">Delete Icon</string>
 </resources>

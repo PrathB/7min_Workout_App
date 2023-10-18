@@ -1,5 +1,6 @@
 package com.test.a7minworkout
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
@@ -53,6 +54,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         setExerciseStatusRecyclerView()
     }
 
+    @SuppressLint("MissingSuperCall")
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         customDialogBack()
