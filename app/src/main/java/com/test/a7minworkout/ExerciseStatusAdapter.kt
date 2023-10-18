@@ -42,7 +42,6 @@ class ExerciseStatusAdapter(private val items : ArrayList<ExerciseModel>):
             else -> {
                 holder.tvExercisePos.background = ContextCompat.getDrawable(
                     holder.itemView.context,R.drawable.exercise_status_bg)
-
             }
         }
     }

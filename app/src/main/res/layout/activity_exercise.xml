@@ -99,6 +99,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_upcoming_exercise" />
 
+    <Button
+        android:id="@+id/btn_skip_rest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:visibility="invisible"
+        android:text="@string/skip"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/button_blue"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rv_progress"/>
+
     <ImageView
         android:id="@+id/iv_exercise"
         android:layout_width="match_parent"
@@ -134,7 +148,7 @@
         android:padding="10dp"
         android:layout_marginBottom="15dp"
         tools:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/rv_progress"
+        app:layout_constraintBottom_toTopOf="@id/btn_skip_exercise"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         >
@@ -168,6 +182,18 @@
         </LinearLayout>
 
     </FrameLayout>
+    <Button
+        android:id="@+id/btn_skip_exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/skip"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/button_blue"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rv_progress"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_progress"

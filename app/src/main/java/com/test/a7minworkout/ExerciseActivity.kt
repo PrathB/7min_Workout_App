@@ -52,6 +52,14 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         setRestView()
         setExerciseStatusRecyclerView()
+
+        binding?.btnSkipRest?.setOnClickListener {
+            skipRest()
+        }
+
+        binding?.btnSkipExercise?.setOnClickListener {
+            skipExercise()
+        }
     }
 
     @SuppressLint("MissingSuperCall")
@@ -117,6 +125,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.tvUpcomingExercise?.visibility = View.VISIBLE
         binding?.tvUpcomingExerciseName?.visibility = View.VISIBLE
 
+        binding?.btnSkipRest?.visibility = View.VISIBLE
+        binding?.btnSkipExercise?.visibility = View.GONE
+
         val exerciseName : String = exerciseList!![currentExercise+1].getName()
 
         binding?.tvUpcomingExerciseName?.text = exerciseName
@@ -143,11 +154,13 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         startRestTimer()
     }
 
-    private fun resetRestTimer(){
-        if(restTimer!= null){
-            restTimer!!.cancel()
-            binding?.tvTimerRest?.text = (10).toString()
-            restTimer = null
+    private fun skipRest(){
+        currentExercise++
+        exerciseList!![currentExercise].setIsSelected(true)
+        exerciseStatusAdapter!!.notifyDataSetChanged()
+
+        if(currentExercise < exerciseList!!.size) {
+            setExerciseView()
         }
     }
 
@@ -188,6 +201,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         binding?.tvUpcomingExercise?.visibility = View.GONE
         binding?.tvUpcomingExerciseName?.visibility = View.GONE
 
+        binding?.btnSkipRest?.visibility = View.GONE
+        binding?.btnSkipExercise?.visibility = View.VISIBLE
+
         binding?.tvExerciseName?.text = exerciseList!![currentExercise].getName()
         binding?.ivExercise?.setImageResource(exerciseList!![currentExercise].getImage())
         exerciseList!![currentExercise].setIsSelected(true)
@@ -207,11 +223,18 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         startExerciseTimer()
     }
 
-    private fun resetExerciseTimer(){
-        if(restTimer!= null){
-            exerciseTimer!!.cancel()
-            binding?.tvTimerRest?.text = (30).toString()
-            exerciseTimer = null
+    private fun skipExercise(){
+        exerciseList!![currentExercise].setIsSelected(false)
+        exerciseList!![currentExercise].setIsCompleted(true)
+        exerciseStatusAdapter!!.notifyDataSetChanged()
+
+        if(currentExercise < exerciseList!!.size - 1) {
+            setRestView()
+        }
+        else{
+            finish()
+            val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -245,6 +268,9 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
         if(player!=null){
             player!!.stop()
+        }
+        if(exerciseStatusAdapter!=null){
+            exerciseStatusAdapter=null
         }
 
         binding = null
